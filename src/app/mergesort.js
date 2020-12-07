@@ -2,7 +2,7 @@
 function merge(left, right, command) {
     let list = [];
 
-    switch (command) {
+    switch (command) { //case switcher to sort by different fields
         case "severity":
             while (left.length && right.length) {
                 if (left[0].Sev < right[0].Sev) {
@@ -83,24 +83,25 @@ function merge(left, right, command) {
             break;
     }
 
-    for (let i = 0; i < left.length; i++) {
+    for (let i = 0; i < left.length; i++) { //merges the left array
         list.push(left[i])
     }
 
-    for (let i = 0; i < right.length; i++) {
+    for (let i = 0; i < right.length; i++) { //merges the right array
         list.push(right[i])
     }
 
     return list
 };
 
+//driver function for mergeSorting
 export function mergeSort(list, command) {
     if (list.length <= 1) {
         return list;
     }
-    const middle = Math.floor(list.length / 2);
-    const left = mergeSort(list.slice(0, middle), command);
-    const right = mergeSort(list.slice(middle), command);
+    const middle = Math.floor(list.length / 2); //finds the middle of the array
+    const left = mergeSort(list.slice(0, middle), command); //splits into left array
+    const right = mergeSort(list.slice(middle), command); //splits into right array
 
     return merge(left, right, command);
 };

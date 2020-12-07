@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { Options } from '@angular-slider/ngx-slider';
 import * as data from 'src/app/cut_down_header.json';
 import * as mergeSorter from 'src/app/mergesort.js';
-import * as quickSorter from 'src/app/quicksort.js'
+import * as heapSorter from 'src/app/heapsort.js'
 
 //stats interface to store all output stats
 interface stats {
@@ -43,10 +43,10 @@ export class MainFormComponent implements OnInit {
   };
 
   //lists for selection dropdowns
-  sortList: any = ['MergeSort', 'QuickSort']
+  sortList: any = ['MergeSort', 'HeapSort']
   stateList: any = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY', 'WV'];
   timeList: any = ['Day', 'Night'];
-  weatherList: any = ['Clear', 'Haze', 'Drizzle', 'Light Rain', 'Rain', 'Heavy Rain', 'Scattered Clouds', 'Partly Cloudy', 'Mostly Cloudy', 'Overcast', 'Light Snow', 'Snow', 'Light Freezing Drizzle', 'Fog', 'Patches of Fog', 'Light Freezing Fog', 'Shallow Fog'];
+  weatherList: any = ['Clear', 'Haze', 'Drizzle', 'Light Rain', 'Rain', 'Heavy Rain', 'Scattered Clouds', 'Partly Cloudy', 'Mostly Cloudy', 'Overcast', 'Light Snow', 'Snow', 'Light Freezing Drizzle', 'Fog', 'Patches of Fog', 'Light Freezing Fog', 'Shallow Fog','Volcanic Ash','Widespread Dust'];
 
   //configurations for sliders
   options1: Options = {
@@ -137,7 +137,7 @@ export class MainFormComponent implements OnInit {
         this.list = mergeSorter.mergeSort(this.list, 'date');
       }
       else{
-        quickSorter.quickSortIterative(this.list,'date');
+        heapSorter.heapSort(this.list,'date');
       }
       console.log(this.list);
       //list = fede'sfunction(tlist);his.searchForm.controls.date.value,
@@ -150,7 +150,7 @@ export class MainFormComponent implements OnInit {
         this.list = mergeSorter.mergeSort(this.list, 'state');
       }
       else{
-        quickSorter.quickSortIterative(this.list,'state');
+        heapSorter.heapSort(this.list,'state');
       }
       console.log(this.list);
       //list = fede'sfunction(this.searchForm.controls.state.value,list);
@@ -163,7 +163,7 @@ export class MainFormComponent implements OnInit {
         this.list = mergeSorter.mergeSort(this.list, 'time');
       }
       else{
-        quickSorter.quickSortIterative(this.list,'time');
+        heapSorter.heapSort(this.list,'time');
       }
       console.log(this.list);
       //list = fede'sfunction(this.searchForm.controls.time.value,list);
@@ -176,7 +176,7 @@ export class MainFormComponent implements OnInit {
         this.list = mergeSorter.mergeSort(this.list, 'weather');
       }
       else{
-        quickSorter.quickSortIterative(this.list,'weather');
+        heapSorter.heapSort(this.list,'weather');
       }
       console.log(this.list);
       //list = fede'sfunction(this.searchForm.controls.weather.value,list);
@@ -189,7 +189,7 @@ export class MainFormComponent implements OnInit {
         this.list = mergeSorter.mergeSort(this.list, 'severity');
       }
       else{
-        quickSorter.quickSortIterative(this.list,'severity');
+        heapSorter.heapSort(this.list,'severity');
       }
       console.log(this.list);
       //list = fede'sfunction(this.searchForm.controls.severity.value,list);
@@ -202,7 +202,7 @@ export class MainFormComponent implements OnInit {
         this.list = mergeSorter.mergeSort(this.list, 'visibility');
       }
       else{
-        quickSorter.quickSortIterative(this.list,'visibility');
+        heapSorter.heapSort(this.list,'visibility');
       }
       console.log(this.list);
       //list = fede'sfunction(this.searchForm.controls.visibility.value,list);
@@ -215,7 +215,7 @@ export class MainFormComponent implements OnInit {
         this.list = mergeSorter.mergeSort(this.list, 'temperature');
       }
       else{
-        quickSorter.quickSortIterative(this.list,'temperature');
+        heapSorter.heapSort(this.list,'temperature');
       }
       console.log(this.list);
       //list = fede'sfunction(this.searchForm.controls.temperature.value,list);
