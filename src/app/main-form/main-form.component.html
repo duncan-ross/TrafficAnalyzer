@@ -1,0 +1,82 @@
+<h1 class="container">Search Parameters</h1>
+
+<div class="container">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <label>
+      Date:
+      <input type="date" id="start" formControlName="date" value="2016-02-09" min="2016-02-08" >
+    </label>
+
+    <label>
+      State:
+      <select class="custom-select" (change)="changeState($event)" formControlName="state">
+        <option value="" disabled>Choose a State</option>
+        <option *ngFor="let state of stateList" [ngValue]="state">{{state}}</option>
+      </select>
+    </label>
+
+    <label>
+      Time:
+      <select class="custom-select" (change)="changeTime($event)" formControlName="time">
+        <option value="" disabled>Choose a Time</option>
+        <option *ngFor="let time of timeList" [ngValue]="time">{{time}}</option>
+      </select>
+    </label>
+
+    <label>
+      Weather:
+      <select class="custom-select" (change)="changeWeather($event)" formControlName="weather">
+        <option value="" disabled>Choose weather condition</option>
+        <option *ngFor="let weather of weatherList" [ngValue]="weather">{{weather}}</option>
+      </select>
+    </label>
+
+    <label>
+      Accident Severity:
+      <ngx-slider [options]="options1" formControlName="severity"></ngx-slider>
+    </label>
+
+    <label>
+      Visibility (in miles):
+      <ngx-slider [options]="options2" formControlName="visibility"></ngx-slider>
+    </label>
+
+    <label>
+      Temperature (in deg. Fahrenheit):
+      <ngx-slider [options]="options3" formControlName="temperature"></ngx-slider>
+    </label>
+
+    <label>
+      Sort Type:
+      <select class="custom-select" (change)="changeSortType($event)" formControlName="sortType">
+        <option value="" disabled>Choose a sorting algorithm</option>
+        <option *ngFor="let sortType of sortList" [ngValue]="sortType">{{sortType}}</option>
+      </select>
+      <div *ngIf="submitted && searchForm.controls.sortType.errors" class="error">
+        <div *ngIf="searchForm.controls.sortType.errors.required">A sorting algorithm is required</div>
+      </div>
+    </label>
+    
+    <label>
+      <input type="submit" value="Search for Accidents" class="cta">
+    </label>
+    
+  </form>
+</div>
+
+<label>
+<div *ngIf="success" class="results">
+  <h3><strong>Results:</strong></h3>
+
+  <span *ngIf="list.length ==0">There are no accidents that matched your query.</span>
+  <span *ngIf="list.length ==1">There is one accident that matched your query.</span>
+  <span *ngIf="list.length >1">There are <b>{{this.numberWithCommas(list.length)}}</b> accidents that matched your query.</span>
+  <span>This took <b>{{this.stats.time}}</b> μs to compute.</span>
+  <span><b>{{this.stats.leftSide}}%</b> occured on the left side of the vehicle, and <b>{{this.stats.rightSide}}%</b> on the right.</span>
+  <span><b>{{this.stats.dayTime}}%</b> occured during the day, and <b>{{this.stats.nightTime}}%</b> at night.</span>
+  <span>Mean Temperature (in deg.F): <b>{{this.stats.tempMean}}</b></span>
+  <span>Mean Pressure (in inches): <b>{{this.stats.presMean}}</b></span>
+  <span>Mean Visibility (in miles): <b>{{this.stats.visMean}}</b></span>
+  <span>Most common wind direction: <b>{{this.stats.windDirection}}</b></span>
+</div>
+</label>

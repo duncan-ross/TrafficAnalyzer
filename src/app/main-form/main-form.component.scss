@@ -1,0 +1,64 @@
+h1 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+ngx-slider{
+    width:50%;
+    margin-right:25%;
+    margin-left:25%;
+}
+label {
+    display: block;
+     clear:right;
+     text-align: center;
+    input, textarea,select {
+        margin-right:25%;
+        margin-left:25%;
+        width: 50%;
+        margin-bottom: 20px;
+        padding: 1em;
+    }
+
+    .error {
+        margin-top: -20px;
+        background: yellow;
+        padding: .5em;
+        display: inline-block;
+        font-size: .9em;
+        margin-bottom: 20px;
+    }
+}
+
+.cta {
+    background: darkgrey;
+    border: none;
+    color: white;
+
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 1em;
+    cursor: pointer;
+    
+}
+
+.results {
+    margin-top: 50px;
+    border-style: solid;
+    background-color: aquamarine;
+    margin-right:25%;
+    margin-left:25%;
+
+    strong {
+        display: block;
+    }
+    span {
+        margin-bottom: 20px;
+        display: block;
+        
+    }
+    .icon{
+        height:40px;
+        width:40px;
+    }
+}
