@@ -25,7 +25,7 @@ export function filter(criteria, filterKey, list)
         date.setDate(date.getDate()+1);
         for (let i = 0; i < listSize; i++)
         {
-          
+            //check if date needed is found
             var checker = new Date(list[i].Date.substring(0,8));
             
             if ((date.getDate()==checker.getDate())&&(date.getMonth()==checker.getMonth()))
@@ -34,11 +34,13 @@ export function filter(criteria, filterKey, list)
                 break;
             }
         }
+        //start the second occurrence after first date found
         var lastOccurence = firstOccurrence;
         for (let j = firstOccurrence + 1; j < listSize; j++)
         {
             var checker = new Date(list[j].Date.substring(0,8))
 
+            //compare dates
             if (!((date.getDate()==checker.getDate())&&(date.getMonth()==checker.getMonth())))
             {
                 lastOccurence = j;
