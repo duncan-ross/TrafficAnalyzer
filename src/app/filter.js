@@ -23,7 +23,6 @@ export function filter(criteria, filterKey, list)
         var firstOccurrence;
         var date = new Date(filterKey);
         date.setDate(date.getDate()+1);
-        console.log(date,date.getDate());
         for (let i = 0; i < listSize; i++)
         {
           
@@ -47,7 +46,6 @@ export function filter(criteria, filterKey, list)
             }
         }
 
-        console.log(firstOccurrence,lastOccurence)
     }
     else // time (day/night), state, or weather (alphabetical sort)
     {

@@ -149,74 +149,66 @@ export class MainFormComponent implements OnInit {
     this.list = data;
     this.list = this.list.default;
     var start = Date.now();
-
+    
     console.log(query);
+    console.log(this.list);
     //calls sort and filter on date
     if (this.searchForm.controls.date.value != '') {
-      console.log(this.list);
       if (query.sort=='MergeSort') {
         this.list=mergeSorter.mergeSort(this.list, 'date');
       }
       else {
         heapSorter.heapSort(this.list, 'date');
       }
-      console.log(this.list);
       this.list = dataFilter.filter('date', query.date, this.list);
       console.log(this.list);
     }
 
     //calls sort and filter on state
     if (this.searchForm.controls.state.value != '') {
-      console.log(this.list);
       if (query.sort=='MergeSort') {
         this.list=mergeSorter.mergeSort(this.list, 'state');
       }
       else {
         heapSorter.heapSort(this.list, 'state');
       }
-      console.log(this.list);
       this.list = dataFilter.filter('state', query.state, this.list);
       console.log(this.list);
     }
 
     //calls sort and filter on time
     if (this.searchForm.controls.time.value != '') {
-      console.log(this.list);
       if (query.sort=='MergeSort') {
         this.list=mergeSorter.mergeSort(this.list, 'time');
       }
       else {
         heapSorter.heapSort(this.list, 'time');
       }
-      console.log(this.list);
       this.list = dataFilter.filter('time', query.time, this.list);
       console.log(this.list);
     }
 
     //calls sort and filter on weather
     if (this.searchForm.controls.weather.value != '') {
-      console.log(this.list);
       if (query.sort=='MergeSort') {
         this.list=mergeSorter.mergeSort(this.list, 'weather');
       }
       else {
         heapSorter.heapSort(this.list, 'weather');
       }
-      console.log(this.list);
+
       this.list = dataFilter.filter('weather', query.weather, this.list);
       console.log(this.list);
     }
 
     //calls sort and filter on severity
     if (this.searchForm.controls.severity.value[0] != 1 || this.searchForm.controls.severity.value[1] != 4) {
-      console.log(this.list);
       if (query.sort=='MergeSort') {
         this.list=mergeSorter.mergeSort(this.list, 'severity');
       }
       else {
         heapSorter.heapSort(this.list, 'severity');
       }
-      console.log(this.list);
       this.list = dataFilter.filter('severity', query.severity, this.list);
       console.log(this.list);
 
@@ -224,28 +216,24 @@ export class MainFormComponent implements OnInit {
 
     //calls sort and filter on visibility
     if (this.searchForm.controls.visibility.value[0] != 1 || this.searchForm.controls.visibility.value[1] != 10) {
-      console.log(this.list);
       if (query.sort=='MergeSort') {
         this.list=mergeSorter.mergeSort(this.list, 'visibility');
       }
       else {
         heapSorter.heapSort(this.list, 'visibility');
       }
-      console.log(this.list);
       this.list = dataFilter.filter('visibility', query.visibility, this.list);
       console.log(this.list);
     }
 
     //calls sort and filter on temperature
     if (this.searchForm.controls.temperature.value[0] != -120 || this.searchForm.controls.temperature.value[1] != 120) {
-      console.log(this.list);
       if (query.sort=='MergeSort') {
         this.list=mergeSorter.mergeSort(this.list, 'temperature');
       }
       else {
         heapSorter.heapSort(this.list, 'temperature');
       }
-      console.log(this.list);
       this.list = dataFilter.filter('temperature', query.temperature, this.list);
       console.log(this.list);
     }

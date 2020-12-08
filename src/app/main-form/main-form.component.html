@@ -71,7 +71,7 @@
   <span *ngIf="list.length ==0">There are no accidents that matched your query.</span>
   <span *ngIf="list.length ==1">There is one accident that matched your query.</span>
   <span *ngIf="list.length >1">There are <b>{{this.numberWithCommas(list.length)}}</b> accidents that matched your query.</span>
-  <span>This took <b>{{this.stats.time}}</b> μs to compute.</span>
+  <span>This took <b>{{this.stats.time}}</b> ms to compute.</span>
   <span><b>{{this.stats.leftSide}}%</b> occured on the left side of the vehicle, and <b>{{this.stats.rightSide}}%</b> on the right.</span>
   <span><b>{{this.stats.dayTime}}%</b> occured during the day, and <b>{{this.stats.nightTime}}%</b> at night.</span>
   <span>Mean Temperature (in deg.F): <b>{{this.stats.tempMean}}</b></span>
